@@ -122,13 +122,12 @@ public class M0608 extends AppCompatActivity {
     private Button.OnClickListener calOnClick = new Button.OnClickListener() {
         @Override
         public void onClick(View v) {
-            //------------------------------
-
             try {
                 nn = Double.parseDouble(num1.getText().toString());
-            } catch (Exception e) {
+            }catch (Exception e){
+                Toast.makeText(getApplicationContext(), getText(R.string.error), Toast.LENGTH_LONG).show();
             }
-            //-------------------------------
+                        //------------------------------
             num1.setText("");
 
             switch (v.getId()) {
@@ -154,6 +153,7 @@ public class M0608 extends AppCompatActivity {
             }
         }
     };
+
     private Button.OnClickListener equalOnClick = new Button.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -168,10 +168,8 @@ public class M0608 extends AppCompatActivity {
 
                 num1.setText("");
                 nn=0;
-
-
-
-
+            }else {
+                Toast.makeText(getApplicationContext(), R.string.m0608_error, Toast.LENGTH_LONG).show();
             }
         }
     };
